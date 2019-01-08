@@ -28,18 +28,4 @@ public class TwoSum {
         }
         throw new IllegalArgumentException("No two sum solution");
     }
-
-
-    public static void main(String[] args) {
-        int[] aa = {2,7,11,15};
-        int target = 9;
-        int[] result = twoSum2(aa, target);
-        if (result != null) {
-            for (int item : result) {
-                System.out.print(item + "\t");
-            }
-            System.out.println();
-        }
-        System.out.println("Hello world");
-    }
 }
