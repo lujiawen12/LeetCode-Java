@@ -1,9 +1,45 @@
+import java.util.HashMap;
+import java.util.Map;
+
 public class TwoSum {
 
-
-
-    public static void main() {
-        System.out.println("Hello!");
+    public static int[] twoSum1(int[] nums, int target) {
+        Map<Integer, Integer> map = new HashMap<>();
+        for (int i = 0; i < nums.length; i++) {
+            map.put(nums[i], i);
+        }
+        for (int i = 0; i < nums.length; i++) {
+            int complement = target - nums[i];
+            if (map.containsKey(complement) && map.get(complement) != i) {
+                return new int[]{i, map.get(complement)};
+            }
+        }
+        throw new IllegalArgumentException("No two sum solution");
     }
 
+    public static int[] twoSum2(int[] nums, int target) {
+        Map<Integer, Integer> map = new HashMap<>();
+        for (int i = 0; i < nums.length; i++) {
+            int complement = target - nums[i];
+            if (map.containsKey(complement) && map.get(complement) != i) {
+                return new int[]{map.get(complement), i};
+            }
+            map.put(nums[i], i);
+        }
+        throw new IllegalArgumentException("No two sum solution");
+    }
+
+
+    public static void main(String[] args) {
+        int[] aa = {2,7,11,15};
+        int target = 9;
+        int[] result = twoSum2(aa, target);
+        if (result != null) {
+            for (int item : result) {
+                System.out.print(item + "\t");
+            }
+            System.out.println();
+        }
+        System.out.println("Hello world");
+    }
 }
